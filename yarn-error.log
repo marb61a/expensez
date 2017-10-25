@@ -1,0 +1,72 @@
+Arguments: 
+  /home/ubuntu/.nvm/versions/node/v8.5.0/bin/node /home/ubuntu/.nvm/versions/node/v8.5.0/bin/yarn add
+
+PATH: 
+  /home/ubuntu/.nvm/versions/node/v8.5.0/bin:/usr/local/rvm/gems/ruby-2.4.0/bin:/usr/local/rvm/gems/ruby-2.4.0@global/bin:/usr/local/rvm/rubies/ruby-2.4.0/bin:/mnt/shared/bin:/home/ubuntu/workspace/node_modules/.bin:/home/ubuntu/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/mnt/shared/sbin:/opt/gitl:/opt/go/bin:/mnt/shared/c9/app.nw/bin:/usr/local/rvm/bin
+
+Yarn version: 
+  1.2.1
+
+Node version: 
+  8.5.0
+
+Platform: 
+  linux x64
+
+npm manifest: 
+  {
+    "name": "expensez",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "serve": "live-server public/",
+      "build": "webpack",
+      "dev-server": "webpack-dev-server"
+    },
+    "dependencies": {
+      "babel-cli": "6.24.1",
+      "babel-core": "6.25.0",
+      "babel-loader": "7.1.1",
+      "babel-plugin-transform-class-properties": "6.24.1",
+      "babel-preset-env": "1.5.2",
+      "babel-preset-react": "6.24.1",
+      "css-loader": "0.28.4",
+      "live-server": "^1.2.0",
+      "node-sass": "4.5.3",
+      "normalize.css": "7.0.0",
+      "react": "15.6.1",
+      "react-dom": "15.6.1",
+      "react-modal": "2.2.2",
+      "sass-loader": "6.0.6",
+      "style-loader": "0.18.2",
+      "validator": "8.0.0",
+      "webpack": "3.1.0",
+      "webpack-dev-server": "2.5.1"
+    }
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/marb61a/expensez.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+      "url": "https://github.com/marb61a/expensez/issues"
+    },
+    "homepage": "https://github.com/marb61a/expensez#readme"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
+
+Trace: 
+  SyntaxError: /home/ubuntu/workspace/expensez/package.json: Unexpected string in JSON at position 777
+      at JSON.parse (<anonymous>)
+      at /home/ubuntu/.nvm/versions/node/v8.5.0/lib/node_modules/yarn/lib/cli.js:770:59
+      at Generator.next (<anonymous>)
+      at step (/home/ubuntu/.nvm/versions/node/v8.5.0/lib/node_modules/yarn/lib/cli.js:92:30)
+      at /home/ubuntu/.nvm/versions/node/v8.5.0/lib/node_modules/yarn/lib/cli.js:103:13
+      at <anonymous>
