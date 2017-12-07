@@ -18,4 +18,10 @@ const jsx = (
     </Provider>    
 );
 
+const jsx = (
+  <Provider store={store}>
+    <AppRouter />
+  </Provider>
+);
+
 ReactDOM.render(jsx, document.getElementById('app'));
