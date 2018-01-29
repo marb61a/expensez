@@ -57,3 +57,28 @@ export const startEditExpense = ((id, updates) => {
         });
     };    
 });
+
+// Set Expenses
+export const setExpenses = (expenses) => ({
+   type: 'SET_EXPENSES',
+   expenses
+});
+
+export const startSetExpenses = () => {
+   return(dispatch, getState) => {
+       const uid = getState().auth.uid;
+       return database.ref(`users/${uid}/expenses`).once('value').then((snapshot) => {
+           const expenses = [];
+           
+           snapshot.forEach((childSnapshot) => {
+               expenses.push({
+                   id: childSnapshot.key,
+                   ...childSnapshot.val()
+               });
+           });
+           
+           dispatch(setExpenses(expenses));
+       });
+   }; 
+};
+
