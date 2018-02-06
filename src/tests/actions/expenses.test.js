@@ -78,20 +78,37 @@ test('should edit expense from firebase', (done) => {
 });
 
 test('should setup add expense action object with provided values', () => {
-   const expenseData = {
-       description: 'Rent',
-       amount: 109500,
-       createdAt: 1000,
-       note: 'This was last months rent'
-   };
-   const action = addExpense(expenseData);
-   expect(action).toEqual({
-       type: 'ADD_EXPENSE',
-       expense: {
-           ...expenseData,
-           id: expect.any(String)
-       }
-   });
+  const action = addExpense(expenses[2]);
+  expect(action).toEqual({
+    type: 'ADD_EXPENSE',
+    expense: expenses[2]
+  });
+});
+
+test('should should add expense to database and store', (done) => {
+    const store = createMockStore(defaultAuthState);
+    const expenseData = {
+        description: 'Mouse',
+        amount: 3000,
+        note: 'This one is better',
+        createdAt: 1000
+    };
+    
+    store.dispatch(startAddExpense(expenseData)).then(() => {
+        const actions = store.getActions();
+        expect(actions[0]).toEqual({
+            type: 'ADD_EXPENSE',
+            expense: {
+                id: expect.any(String),
+                ...expenseData
+            }
+        });
+        
+        return database.ref(`users/${uid}/expenses/${actions[0].expense.id}`).once('value');
+    }).then((snapshot) => {
+        expect(snapshot.val()).toEqual(expenseData);
+        done();
+    });
 });
 
 test('should setup add expense action object with default values', () => {
